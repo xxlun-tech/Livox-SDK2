@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.12)
+set(CMAKE_CXX_STANDARD 14)
 
 set(SDK_LIBRARY_STATIC livox_lidar_sdk_static)
 set(SDK_LIBRARY_SHARED livox_lidar_sdk_shared)
@@ -17,7 +18,7 @@ set(LIVOX_API_HEADER
         ../include/livox_lidar_cfg.h
         )
 
-set_target_properties(${SDK_LIBRARY_STATIC} #${SDK_LIBRARY_SHARED} 
+set_target_properties(${SDK_LIBRARY_STATIC} #${SDK_LIBRARY_SHARED}
         PROPERTIES
         PUBLIC_HEADER "${LIVOX_API_HEADER}"
         )
@@ -40,12 +41,12 @@ target_compile_options(${SDK_LIBRARY_SHARED}
         PRIVATE $<$<CXX_COMPILER_ID:Clang>:-Wno-unknown-pragmas -Wall -Werror -Wno-c++11-long-long>
         )
 
-set(LIVOX_PRIVATE_INCLUDE_DIR 
-        ../3rdparty 
-        ../3rdparty/spdlog 
+set(LIVOX_PRIVATE_INCLUDE_DIR
+        ../3rdparty
+        ../3rdparty/spdlog
         .
         )
-set(LIVOX_PUBLIC_INCLUDE_DIR 
+set(LIVOX_PUBLIC_INCLUDE_DIR
         ../include
         )
 
@@ -55,7 +56,7 @@ target_include_directories(
         ${LIVOX_PUBLIC_INCLUDE_DIR}
         PRIVATE
         ${LIVOX_PRIVATE_INCLUDE_DIR}
-        )        
+        )
 target_include_directories(
         ${SDK_LIBRARY_SHARED}
         PUBLIC

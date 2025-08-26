@@ -1,10 +1,7 @@
-cmake_minimum_required(VERSION 3.0)
-
+cmake_minimum_required(VERSION 3.12)
 project(livox_sdk2)
 
-set(CMAKE_CXX_STANDARD 11)
-
-message(STATUS "main project dir: " ${PROJECT_SOURCE_DIR})
+set(CMAKE_CXX_STANDARD 14)
 
 if (CMAKE_CROSSCOMPILING)
 	set(THREADS_PTHREAD_ARG

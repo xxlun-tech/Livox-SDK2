@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.0)
-
+cmake_minimum_required(VERSION 3.12)
+set(CMAKE_CXX_STANDARD 11)
 set(DEMO_NAME livox_lidar_rmc_time_sync)
 if (WIN32)
   add_executable(${DEMO_NAME} main.cpp win/synchro.cpp)
